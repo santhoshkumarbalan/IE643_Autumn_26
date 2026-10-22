@@ -1,0 +1,68 @@
+{
+    "AVES-bio": {
+        "shots_per_class": 10,
+        "total_train_samples": 60,
+        "feature_dim": 768,
+        "optimal_epoch": 150,
+        "cv_val_loss": 0.9760579824447632,
+        "cv_val_acc": 0.6500000119209289,
+        "final_train_loss": 0.1900276243686676,
+        "final_train_accuracy": 1.0,
+        "weights_path": "../trained_models_epoch_tuned_10_shot/Linear\\AVES-bio_linear.pt"
+    },
+    "BirdAVES-biox-base": {
+        "shots_per_class": 10,
+        "total_train_samples": 60,
+        "feature_dim": 768,
+        "optimal_epoch": 150,
+        "cv_val_loss": 0.8954132676124573,
+        "cv_val_acc": 0.6999999940395355,
+        "final_train_loss": 0.14027492702007294,
+        "final_train_accuracy": 1.0,
+        "weights_path": "../trained_models_epoch_tuned_10_shot/Linear\\BirdAVES-biox-base_linear.pt"
+    },
+    "DistilHuBERT": {
+        "shots_per_class": 10,
+        "total_train_samples": 60,
+        "feature_dim": 768,
+        "optimal_epoch": 133,
+        "cv_val_loss": 1.0412419080734252,
+        "cv_val_acc": 0.6666666746139527,
+        "final_train_loss": 0.2100725919008255,
+        "final_train_accuracy": 1.0,
+        "weights_path": "../trained_models_epoch_tuned_10_shot/Linear\\DistilHuBERT_linear.pt"
+    },
+    "HuBERT": {
+        "shots_per_class": 10,
+        "total_train_samples": 60,
+        "feature_dim": 768,
+        "optimal_epoch": 105,
+        "cv_val_loss": 1.237542748451233,
+        "cv_val_acc": 0.5166666626930236,
+        "final_train_loss": 0.33635851740837097,
+        "final_train_accuracy": 1.0,
+        "weights_path": "../trained_models_epoch_tuned_10_shot/Linear\\HuBERT_linear.pt"
+    },
+    "MusicHuBERT": {
+        "shots_per_class": 10,
+        "total_train_samples": 60,
+        "feature_dim": 768,
+        "optimal_epoch": 95,
+        "cv_val_loss": 1.3346927165985107,
+        "cv_val_acc": 0.549999988079071,
+        "final_train_loss": 0.27978309988975525,
+        "final_train_accuracy": 1.0,
+        "weights_path": "../trained_models_epoch_tuned_10_shot/Linear\\MusicHuBERT_linear.pt"
+    },
+    "WavLM": {
+        "shots_per_class": 10,
+        "total_train_samples": 60,
+        "feature_dim": 768,
+        "optimal_epoch": 96,
+        "cv_val_loss": 1.1706894755363464,
+        "cv_val_acc": 0.5666666567325592,
+        "final_train_loss": 0.44756612181663513,
+        "final_train_accuracy": 0.949999988079071,
+        "weights_path": "../trained_models_epoch_tuned_10_shot/Linear\\WavLM_linear.pt"
+    }
+}
