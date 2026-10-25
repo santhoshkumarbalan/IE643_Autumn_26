@@ -143,6 +143,42 @@
         },
         "weights_path": "../trained_models_25_shot/Linear\\HuBERT_linear.pt"
     },
+    "Music2Vec": {
+        "shots_per_class": 25,
+        "total_train_samples": 150,
+        "feature_dim": 768,
+        "optimal_lambda": 0.0001,
+        "final_train_loss": 0.9958574175834656,
+        "final_train_accuracy": 0.8199999928474426,
+        "cv_leave_out_per_class": 5,
+        "cv_grid_results": {
+            "0.0001": {
+                "mean_val_loss": 1.5278030633926392,
+                "mean_val_acc": 0.36666667461395264
+            },
+            "0.001": {
+                "mean_val_loss": 1.5278318643569946,
+                "mean_val_acc": 0.36666667461395264
+            },
+            "0.01": {
+                "mean_val_loss": 1.5281207084655761,
+                "mean_val_acc": 0.36666667461395264
+            },
+            "0.1": {
+                "mean_val_loss": 1.5311636686325074,
+                "mean_val_acc": 0.373333340883255
+            },
+            "1.0": {
+                "mean_val_loss": 1.5687899112701416,
+                "mean_val_acc": 0.34000000953674314
+            },
+            "10.0": {
+                "mean_val_loss": 1.72754008769989,
+                "mean_val_acc": 0.40000001192092893
+            }
+        },
+        "weights_path": "../trained_models_25_shot/Linear\\Music2Vec_linear.pt"
+    },
     "MusicHuBERT": {
         "shots_per_class": 25,
         "total_train_samples": 150,

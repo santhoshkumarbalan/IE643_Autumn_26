@@ -43,6 +43,17 @@
         "final_train_accuracy": 0.9666666388511658,
         "weights_path": "../trained_models_epoch_tuned_5_shot/Linear\\HuBERT_linear.pt"
     },
+    "Music2Vec": {
+        "shots_per_class": 5,
+        "total_train_samples": 30,
+        "feature_dim": 768,
+        "optimal_epoch": 28,
+        "cv_val_loss": 1.7507246494293214,
+        "cv_val_acc": 0.23333334028720856,
+        "final_train_loss": 1.2506359815597534,
+        "final_train_accuracy": 0.9333333373069763,
+        "weights_path": "../trained_models_epoch_tuned_5_shot/Linear\\Music2Vec_linear.pt"
+    },
     "MusicHuBERT": {
         "shots_per_class": 5,
         "total_train_samples": 30,

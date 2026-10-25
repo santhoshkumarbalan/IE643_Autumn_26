@@ -2,6 +2,46 @@
     "eval_source": "regularized",
     "correlations": [
         {
+            "shots": 1,
+            "metric": "LogME",
+            "spearman_rho": 0.08571428571428573,
+            "spearman_pvalue": 0.8717434402332361,
+            "kendall_tau": 0.06666666666666665,
+            "kendall_pvalue": 1.0,
+            "pearson_r": -0.26019650658855314,
+            "pearson_pvalue": 0.6185131809488309
+        },
+        {
+            "shots": 1,
+            "metric": "H-score",
+            "spearman_rho": 0.7142857142857143,
+            "spearman_pvalue": 0.11078717201166179,
+            "kendall_tau": 0.6,
+            "kendall_pvalue": 0.1361111111111111,
+            "pearson_r": 0.9154361130317092,
+            "pearson_pvalue": 0.010424216135424606
+        },
+        {
+            "shots": 1,
+            "metric": "LFC",
+            "spearman_rho": 0.2571428571428572,
+            "spearman_pvalue": 0.6227871720116619,
+            "kendall_tau": 0.2,
+            "kendall_pvalue": 0.7194444444444444,
+            "pearson_r": 0.16062898836608808,
+            "pearson_pvalue": 0.7611287656788753
+        },
+        {
+            "shots": 1,
+            "metric": "LGC",
+            "spearman_rho": 0.2571428571428572,
+            "spearman_pvalue": 0.6227871720116619,
+            "kendall_tau": 0.2,
+            "kendall_pvalue": 0.7194444444444444,
+            "pearson_r": 0.16062927282370373,
+            "pearson_pvalue": 0.7611283500016943
+        },
+        {
             "shots": 5,
             "metric": "LogME",
             "spearman_rho": 0.6667366910003157,
@@ -123,6 +163,56 @@
         }
     ],
     "model_level_data": {
+        "1_shot": [
+            {
+                "Model": "AVES-bio",
+                "Test_Accuracy": 0.35333332419395447,
+                "LogME": 0.929705715721933,
+                "H-score": 4.9998973725270455,
+                "LFC": 0.9012071853963363,
+                "LGC": 0.9012067764961391
+            },
+            {
+                "Model": "BirdAVES-biox-base",
+                "Test_Accuracy": 0.4000000059604645,
+                "LogME": 1.1217030807931614,
+                "H-score": 4.999727445968795,
+                "LFC": 0.959781067564811,
+                "LGC": 0.9597811414905999
+            },
+            {
+                "Model": "DistilHuBERT",
+                "Test_Accuracy": 0.36000001430511475,
+                "LogME": 1.2157074348494583,
+                "H-score": 4.999515731576995,
+                "LFC": 0.7996965274065837,
+                "LGC": 0.7996966855718483
+            },
+            {
+                "Model": "HuBERT",
+                "Test_Accuracy": 0.3466666638851166,
+                "LogME": 0.9217615738603817,
+                "H-score": 4.999535521536234,
+                "LFC": 0.8334995913664397,
+                "LGC": 0.8334996449800358
+            },
+            {
+                "Model": "MusicHuBERT",
+                "Test_Accuracy": 0.23999999463558197,
+                "LogME": 1.0912134460219438,
+                "H-score": 4.9977567155972995,
+                "LFC": 0.9246219071745964,
+                "LGC": 0.924621889401344
+            },
+            {
+                "Model": "WavLM",
+                "Test_Accuracy": 0.2866666615009308,
+                "LogME": 1.3672263991136318,
+                "H-score": 4.99780780880935,
+                "LFC": 0.7783905401033514,
+                "LGC": 0.7783905304839173
+            }
+        ],
         "5_shot": [
             {
                 "Model": "AVES-bio",
