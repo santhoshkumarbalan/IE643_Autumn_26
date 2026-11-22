@@ -1,0 +1,386 @@
+{
+    "AVES-bio": {
+        "shots_per_class": 25,
+        "total_train_samples": 150,
+        "feature_dim": 768,
+        "optimal_lambda": 1e-05,
+        "final_train_loss": 0.2417779564857483,
+        "final_train_accuracy": 0.9933333396911621,
+        "cv_leave_out_per_class": 5,
+        "cv_grid_results": {
+            "1e-05": {
+                "mean_val_loss": 0.7979259371757508,
+                "mean_val_acc": 0.7400000095367432
+            },
+            "5e-05": {
+                "mean_val_loss": 0.797929322719574,
+                "mean_val_acc": 0.7400000095367432
+            },
+            "0.0001": {
+                "mean_val_loss": 0.7979345321655273,
+                "mean_val_acc": 0.7400000095367432
+            },
+            "0.0005": {
+                "mean_val_loss": 0.7979726195335388,
+                "mean_val_acc": 0.7400000095367432
+            },
+            "0.001": {
+                "mean_val_loss": 0.7980204939842224,
+                "mean_val_acc": 0.7400000095367432
+            },
+            "0.005": {
+                "mean_val_loss": 0.798406183719635,
+                "mean_val_acc": 0.7400000095367432
+            },
+            "0.01": {
+                "mean_val_loss": 0.7988960981369019,
+                "mean_val_acc": 0.7400000095367432
+            },
+            "0.05": {
+                "mean_val_loss": 0.8031037092208863,
+                "mean_val_acc": 0.7333333373069764
+            },
+            "0.1": {
+                "mean_val_loss": 0.8090057492256164,
+                "mean_val_acc": 0.7333333373069764
+            },
+            "0.5": {
+                "mean_val_loss": 0.8705092906951905,
+                "mean_val_acc": 0.7266666650772095
+            },
+            "1.0": {
+                "mean_val_loss": 0.9562286734580994,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "5.0": {
+                "mean_val_loss": 1.3874316453933715,
+                "mean_val_acc": 0.7133333325386048
+            },
+            "10.0": {
+                "mean_val_loss": 1.564367651939392,
+                "mean_val_acc": 0.6666666746139527
+            }
+        },
+        "weights_path": "..\\classification_models_trained\\trained_models_lambda_tuned_25_shot\\Linear\\AVES-bio_linear.pt"
+    },
+    "BirdAVES-biox-base": {
+        "shots_per_class": 25,
+        "total_train_samples": 150,
+        "feature_dim": 768,
+        "optimal_lambda": 1e-05,
+        "final_train_loss": 0.18741264939308167,
+        "final_train_accuracy": 1.0,
+        "cv_leave_out_per_class": 5,
+        "cv_grid_results": {
+            "1e-05": {
+                "mean_val_loss": 0.7533026337623596,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "5e-05": {
+                "mean_val_loss": 0.7533074021339417,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.0001": {
+                "mean_val_loss": 0.7533145546913147,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.0005": {
+                "mean_val_loss": 0.7533675193786621,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.001": {
+                "mean_val_loss": 0.7534340143203735,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.005": {
+                "mean_val_loss": 0.7539677739143371,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.01": {
+                "mean_val_loss": 0.7546417474746704,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.05": {
+                "mean_val_loss": 0.760273790359497,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.1": {
+                "mean_val_loss": 0.7678435325622559,
+                "mean_val_acc": 0.7199999928474426
+            },
+            "0.5": {
+                "mean_val_loss": 0.8393527269363403,
+                "mean_val_acc": 0.7266666650772095
+            },
+            "1.0": {
+                "mean_val_loss": 0.9336733937263488,
+                "mean_val_acc": 0.7266666769981385
+            },
+            "5.0": {
+                "mean_val_loss": 1.3920182228088378,
+                "mean_val_acc": 0.7066666841506958
+            },
+            "10.0": {
+                "mean_val_loss": 1.569449210166931,
+                "mean_val_acc": 0.6933333396911621
+            }
+        },
+        "weights_path": "..\\classification_models_trained\\trained_models_lambda_tuned_25_shot\\Linear\\BirdAVES-biox-base_linear.pt"
+    },
+    "DistilHuBERT": {
+        "shots_per_class": 25,
+        "total_train_samples": 150,
+        "feature_dim": 768,
+        "optimal_lambda": 1e-05,
+        "final_train_loss": 0.25011226534843445,
+        "final_train_accuracy": 0.9933333396911621,
+        "cv_leave_out_per_class": 5,
+        "cv_grid_results": {
+            "1e-05": {
+                "mean_val_loss": 0.8331279397010803,
+                "mean_val_acc": 0.7399999976158143
+            },
+            "5e-05": {
+                "mean_val_loss": 0.8331301808357239,
+                "mean_val_acc": 0.7399999976158143
+            },
+            "0.0001": {
+                "mean_val_loss": 0.8331335186958313,
+                "mean_val_acc": 0.7399999976158143
+            },
+            "0.0005": {
+                "mean_val_loss": 0.8331580996513367,
+                "mean_val_acc": 0.7399999976158143
+            },
+            "0.001": {
+                "mean_val_loss": 0.8331891179084778,
+                "mean_val_acc": 0.7399999976158143
+            },
+            "0.005": {
+                "mean_val_loss": 0.8334398984909057,
+                "mean_val_acc": 0.7399999976158143
+            },
+            "0.01": {
+                "mean_val_loss": 0.8337616205215455,
+                "mean_val_acc": 0.7333333373069764
+            },
+            "0.05": {
+                "mean_val_loss": 0.8366446852684021,
+                "mean_val_acc": 0.7333333373069764
+            },
+            "0.1": {
+                "mean_val_loss": 0.8409394860267639,
+                "mean_val_acc": 0.7333333373069764
+            },
+            "0.5": {
+                "mean_val_loss": 0.8909799575805664,
+                "mean_val_acc": 0.7266666769981385
+            },
+            "1.0": {
+                "mean_val_loss": 0.9646090269088745,
+                "mean_val_acc": 0.7200000047683716
+            },
+            "5.0": {
+                "mean_val_loss": 1.3540478944778442,
+                "mean_val_acc": 0.6666666746139527
+            },
+            "10.0": {
+                "mean_val_loss": 1.5341570138931275,
+                "mean_val_acc": 0.6133333504199981
+            }
+        },
+        "weights_path": "..\\classification_models_trained\\trained_models_lambda_tuned_25_shot\\Linear\\DistilHuBERT_linear.pt"
+    },
+    "HuBERT": {
+        "shots_per_class": 25,
+        "total_train_samples": 150,
+        "feature_dim": 768,
+        "optimal_lambda": 1e-05,
+        "final_train_loss": 0.275461882352829,
+        "final_train_accuracy": 0.9933333396911621,
+        "cv_leave_out_per_class": 5,
+        "cv_grid_results": {
+            "1e-05": {
+                "mean_val_loss": 0.9357225298881531,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "5e-05": {
+                "mean_val_loss": 0.9357242107391357,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.0001": {
+                "mean_val_loss": 0.935726797580719,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.0005": {
+                "mean_val_loss": 0.9357457756996155,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.001": {
+                "mean_val_loss": 0.9357696175575256,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.005": {
+                "mean_val_loss": 0.9359643459320068,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.01": {
+                "mean_val_loss": 0.9362170934677124,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.05": {
+                "mean_val_loss": 0.9385890126228332,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.1": {
+                "mean_val_loss": 0.9423365354537964,
+                "mean_val_acc": 0.6866666674613953
+            },
+            "0.5": {
+                "mean_val_loss": 0.9900500416755676,
+                "mean_val_acc": 0.6733333468437195
+            },
+            "1.0": {
+                "mean_val_loss": 1.0620349407196046,
+                "mean_val_acc": 0.6733333349227906
+            },
+            "5.0": {
+                "mean_val_loss": 1.4262146472930908,
+                "mean_val_acc": 0.6066666722297669
+            },
+            "10.0": {
+                "mean_val_loss": 1.5807253122329712,
+                "mean_val_acc": 0.5800000071525574
+            }
+        },
+        "weights_path": "..\\classification_models_trained\\trained_models_lambda_tuned_25_shot\\Linear\\HuBERT_linear.pt"
+    },
+    "MusicHuBERT": {
+        "shots_per_class": 25,
+        "total_train_samples": 150,
+        "feature_dim": 768,
+        "optimal_lambda": 0.1,
+        "final_train_loss": 0.24334850907325745,
+        "final_train_accuracy": 1.0,
+        "cv_leave_out_per_class": 5,
+        "cv_grid_results": {
+            "1e-05": {
+                "mean_val_loss": 1.237734615802765,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "5e-05": {
+                "mean_val_loss": 1.2377311825752257,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "0.0001": {
+                "mean_val_loss": 1.2377262830734252,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "0.0005": {
+                "mean_val_loss": 1.2376892685890197,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "0.001": {
+                "mean_val_loss": 1.2376431226730347,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "0.005": {
+                "mean_val_loss": 1.2372793674468994,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "0.01": {
+                "mean_val_loss": 1.2368378162384033,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "0.05": {
+                "mean_val_loss": 1.2338062524795532,
+                "mean_val_acc": 0.5866666793823242
+            },
+            "0.1": {
+                "mean_val_loss": 1.2311548352241517,
+                "mean_val_acc": 0.5800000071525574
+            },
+            "0.5": {
+                "mean_val_loss": 1.2387403488159179,
+                "mean_val_acc": 0.5600000083446502
+            },
+            "1.0": {
+                "mean_val_loss": 1.2784022569656373,
+                "mean_val_acc": 0.5333333432674408
+            },
+            "5.0": {
+                "mean_val_loss": 1.5388827562332152,
+                "mean_val_acc": 0.48666667342185976
+            },
+            "10.0": {
+                "mean_val_loss": 1.6466862678527832,
+                "mean_val_acc": 0.44666666984558107
+            }
+        },
+        "weights_path": "..\\classification_models_trained\\trained_models_lambda_tuned_25_shot\\Linear\\MusicHuBERT_linear.pt"
+    },
+    "WavLM": {
+        "shots_per_class": 25,
+        "total_train_samples": 150,
+        "feature_dim": 768,
+        "optimal_lambda": 0.1,
+        "final_train_loss": 0.4733932912349701,
+        "final_train_accuracy": 0.95333331823349,
+        "cv_leave_out_per_class": 5,
+        "cv_grid_results": {
+            "1e-05": {
+                "mean_val_loss": 1.1254630208015441,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "5e-05": {
+                "mean_val_loss": 1.125461494922638,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "0.0001": {
+                "mean_val_loss": 1.1254590034484864,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "0.0005": {
+                "mean_val_loss": 1.1254411220550538,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "0.001": {
+                "mean_val_loss": 1.125418734550476,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "0.005": {
+                "mean_val_loss": 1.1252442955970765,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "0.01": {
+                "mean_val_loss": 1.1250370621681214,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "0.05": {
+                "mean_val_loss": 1.1237897157669068,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "0.1": {
+                "mean_val_loss": 1.1231601357460022,
+                "mean_val_acc": 0.620000010728836
+            },
+            "0.5": {
+                "mean_val_loss": 1.1410908102989197,
+                "mean_val_acc": 0.6133333504199981
+            },
+            "1.0": {
+                "mean_val_loss": 1.1853304386138916,
+                "mean_val_acc": 0.5933333396911621
+            },
+            "5.0": {
+                "mean_val_loss": 1.4531906604766847,
+                "mean_val_acc": 0.5333333432674408
+            },
+            "10.0": {
+                "mean_val_loss": 1.5809186220169067,
+                "mean_val_acc": 0.5066666722297668
+            }
+        },
+        "weights_path": "..\\classification_models_trained\\trained_models_lambda_tuned_25_shot\\Linear\\WavLM_linear.pt"
+    }
+}

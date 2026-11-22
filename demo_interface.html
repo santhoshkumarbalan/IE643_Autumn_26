@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Which audio model should I adapt?</title>
+<style>
+:root{--bg:#0e1512;--panel:#15201b;--line:#25352d;--tx:#e6ebe4;--mut:#8fa196;--acc:#e8b84a;--ok:#6fcf97;--bad:#e5735c;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 system-ui,Segoe UI,sans-serif}
+h1,h2,h3{font-family:Iowan Old Style,Georgia,serif;font-weight:600;margin:0}
+header{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;gap:24px;align-items:baseline;flex-wrap:wrap}
+header h1{font-size:24px}header span{color:var(--mut)}
+nav{margin-left:auto;display:flex;gap:6px}nav button{background:none;border:1px solid var(--line);color:var(--mut);padding:6px 14px;border-radius:6px;cursor:pointer}
+nav button.on{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:calc(100vh - 70px)}
+aside{border-right:1px solid var(--line);padding:16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+fieldset{border:0;padding:0;margin:0 0 16px}legend{font-family:Georgia,serif;font-size:15px;padding:0;margin-bottom:6px;display:flex;justify-content:space-between;width:100%}
+legend a{color:var(--acc);font:12px system-ui;cursor:pointer}
+label{display:flex;gap:8px;align-items:center;padding:2px 0;cursor:pointer}input{accent-color:var(--acc)}
+main{padding:20px 24px;min-width:0}
+.shot{margin-bottom:34px}.shot>h2{font-size:20px;margin-bottom:10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.shot>h2 small{color:var(--mut);font:13px system-ui;margin-left:8px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px;margin-bottom:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px}
+.card h3{font-size:15px;margin-bottom:8px}.card h3 small{color:var(--mut);font:12px system-ui}
+.bar{display:grid;grid-template-columns:70px 1fr 62px;gap:6px;align-items:center;margin:4px 0;font-size:12px}
+.bar i{display:block;height:12px;border-radius:2px}.bar b{font-weight:400;color:var(--mut);text-align:right}
+table{border-collapse:collapse;width:100%}th,td{padding:5px 8px;text-align:center;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}
+th{color:var(--mut);font-weight:500}.c0{color:var(--ok)}.c1{color:var(--acc)}.c2{color:var(--bad)}
+.note{background:#2a2410;border:1px solid #5a4a14;color:#e9d9a0;padding:8px 12px;border-radius:6px;margin:8px 0}
+.row.full{grid-template-columns:1fr}.sh{font:600 15px Georgia,serif;color:var(--mut);margin:20px 0 8px}legend span a{margin-left:10px}.sig{color:var(--acc)}svg text{fill:var(--mut);font-size:11px}
+select,button.act{background:var(--panel);color:var(--tx);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font:inherit}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:14px}.ctl label{display:block}
+.pred{font:600 26px Georgia,serif;margin:8px 0}.hide{display:none}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}aside{position:static;max-height:none}}
+</style></head><body>
+<header><h1>Which audio model should I adapt?</h1><span>Few-shot bird species · transferability scores vs linear-probe accuracy</span>
+<nav><button id="t1" class="on">Results</button><button id="t2">Audio demo</button></nav></header>
+<div class="wrap"><aside id="side"></aside><main>
+<div id="res"></div>
+<div id="aud" class="hide"></div></main></div>
+<script>
+const M=["AVES-bio","BirdAVES-biox-base","DistilHuBERT","HuBERT","MusicHuBERT","WavLM"],SH=["AVES","BirdAVES","Distil","HuBERT","Music","WavLM"],
+COL=["#6fcf97","#e8b84a","#7fb3e8","#c79af0","#e5735c","#5fd0c4"];
+const TS=["LGC","LFC","H-score","LogME"],MS=["Spearman","Kendall","Pearson"],SHOTS=[25,10,5,1];
+const SC={
+25:{LogME:[-.1567,-.1206,-.1784,-.2305,-.3277,-.2918],"H-score":[4.9947,4.9894,4.9684,4.9621,4.8836,4.6362],LFC:[.4207,.4245,.4242,.4236,.4119,.4260],LGC:[.3086,.2938,.2042,.1918,.1226,.1919]},
+10:{LogME:[-.1683,-.0519,-.1758,-.2649,-.3624,-.3073],"H-score":[4.9987,4.9975,4.9933,4.9919,4.9680,4.9377],LFC:[.3966,.3858,.2669,.2360,.2310,.2521]},
+5:{LogME:[-.1273,-.1503,-.1293,-.2142,-.2915,-.4018],"H-score":[4.9994,4.9987,4.9970,4.9969,4.9881,4.9818],LFC:[.3799,.3536,.2741,.2356,.3306,.2406]},
+1:{LogME:[.9297,1.1217,1.2157,.9218,1.0912,1.3672],"H-score":[4.9999,4.9997,4.9995,4.9995,4.9978,4.9978],LFC:[.9012,.9598,.7997,.8335,.9246,.7784]}};
+[10,5,1].forEach(s=>SC[s].LGC=SC[s].LFC); // LGC equals LFC in the 10/5/1-shot files
+const AC={G1:{25:[68.67,72.67,70.67,68.67,64.67,64.67],10:[68.67,62,61.33,62.67,58.67,56.67],5:[63.33,57.33,47.33,47.33,49.33,42.67],1:[35.33,40,36,34.67,24,28.67]},
+G2:{25:[70.67,71.33,69.33,70,64,62],10:[67.33,63.33,63.33,62.67,58.67,56.67],5:[64,57.33,45.33,49.33,46.67,42.67],1:[35.33,40,34,34,23.33,27.33]}};
+const LOSS={G1:{25:[.9398,.9254,.9130,1.0177,1.0799,1.1242],10:[1.0132,1.0636,1.0784,1.1668,1.1755,1.2966],5:[1.2199,1.2663,1.3578,1.6385,1.4820,1.5159],1:[1.7031,1.7191,1.6741,1.6978,1.7660,1.7065]},
+G2:{25:[.8829,.8617,.8639,.9751,1.0254,1.0828],10:[.9654,1.0233,1.0650,1.1641,1.1765,1.2981],5:[1.1975,1.2687,1.3555,1.4567,1.5335,1.5357],1:[1.5857,1.6155,1.6314,1.6566,1.8118,1.7786]}}; // test cross-entropy, used only to break accuracy ties
+const SRC={},WARN=[],CLIPS=[["amecro","XC114552.mp3"],["amecro","XC114555.mp3"],["amecro","XC114557.mp3"],["amecro","XC114559.mp3"],["amecro","XC114561.mp3"],["amecro","XC115939.mp3"],["amecro","XC115940.mp3"],["amecro","XC131445.mp3"],["amecro","XC160878.mp3"],["amecro","XC167792.mp3"],["amecro","XC172427.mp3"],["amecro","XC181497.mp3"],["amecro","XC187481.mp3"],["amecro","XC193112.mp3"],["amecro","XC268481.mp3"],["amecro","XC279723.mp3"],["amecro","XC320383.mp3"],["amecro","XC328542.mp3"],["amecro","XC332328.mp3"],["amecro","XC364635.mp3"],["amecro","XC404505.mp3"],["amecro","XC414931.mp3"],["amecro","XC478839.mp3"],["amecro","XC481136.mp3"],["amecro","XC481933.mp3"],["amerob","XC139086.mp3"],["amerob","XC164729.mp3"],["amerob","XC165272.mp3"],["amerob","XC165284.mp3"],["amerob","XC165291.mp3"],["amerob","XC165294.mp3"],["amerob","XC165295.mp3"],["amerob","XC165300.mp3"],["amerob","XC172423.mp3"],["amerob","XC177384.mp3"],["amerob","XC178008.mp3"],["amerob","XC254483.mp3"],["amerob","XC254484.mp3"],["amerob","XC302644.mp3"],["amerob","XC313352.mp3"],["amerob","XC320503.mp3"],["amerob","XC385843.mp3"],["amerob","XC406326.mp3"],["amerob","XC407819.mp3"],["amerob","XC446457.mp3"],["amerob","XC464997.mp3"],["amerob","XC466479.mp3"],["amerob","XC480926.mp3"],["amerob","XC483578.mp3"],["amerob","XC483628.mp3"],["astfly","XC122806.mp3"],["astfly","XC122809.mp3"],["astfly","XC122811.mp3"],["astfly","XC122813.mp3"],["astfly","XC122815.mp3"],["astfly","XC122817.mp3"],["astfly","XC122818.mp3"],["astfly","XC122821.mp3"],["astfly","XC122895.mp3"],["astfly","XC122898.mp3"],["astfly","XC122900.mp3"],["astfly","XC122912.mp3"],["astfly","XC122913.mp3"],["astfly","XC122922.mp3"],["astfly","XC141345.mp3"],["astfly","XC163942.mp3"],["astfly","XC244505.mp3"],["astfly","XC268649.mp3"],["astfly","XC268655.mp3"],["astfly","XC283540.mp3"],["astfly","XC365936.mp3"],["astfly","XC404715.mp3"],["astfly","XC460579.mp3"],["astfly","XC482515.mp3"],["astfly","XC482868.mp3"],["barswa","XC142731.mp3"],["barswa","XC156257.mp3"],["barswa","XC188601.mp3"],["barswa","XC191025.mp3"],["barswa","XC197400.mp3"],["barswa","XC252931.mp3"],["barswa","XC256543.mp3"],["barswa","XC271037.mp3"],["barswa","XC307295.mp3"],["barswa","XC309534.mp3"],["barswa","XC317542.mp3"],["barswa","XC321212.mp3"],["barswa","XC330691.mp3"],["barswa","XC343867.mp3"],["barswa","XC361746.mp3"],["barswa","XC361812.mp3"],["barswa","XC378412.mp3"],["barswa","XC378685.mp3"],["barswa","XC378710.mp3"],["barswa","XC385612.mp3"],["barswa","XC428701.mp3"],["barswa","XC433031.mp3"],["barswa","XC452059.mp3"],["barswa","XC471591.mp3"],["barswa","XC471705.mp3"],["bewwre","XC163209.mp3"],["bewwre","XC163633.mp3"],["bewwre","XC168584.mp3"],["bewwre","XC171094.mp3"],["bewwre","XC172752.mp3"],["bewwre","XC173150.mp3"],["bewwre","XC173153.mp3"],["bewwre","XC178016.mp3"],["bewwre","XC216178.mp3"],["bewwre","XC217823.mp3"],["bewwre","XC217824.mp3"],["bewwre","XC217843.mp3"],["bewwre","XC217847.mp3"],["bewwre","XC217858.mp3"],["bewwre","XC243688.mp3"],["bewwre","XC254552.mp3"],["bewwre","XC323981.mp3"],["bewwre","XC325137.mp3"],["bewwre","XC325229.mp3"],["bewwre","XC351041.mp3"],["bewwre","XC371790.mp3"],["bewwre","XC383784.mp3"],["bewwre","XC451372.mp3"],["bewwre","XC469010.mp3"],["bewwre","XC475741.mp3"],["eastow","XC130574.mp3"],["eastow","XC130576.mp3"],["eastow","XC134753.mp3"],["eastow","XC137047.mp3"],["eastow","XC140947.mp3"],["eastow","XC145787.mp3"],["eastow","XC145788.mp3"],["eastow","XC177501.mp3"],["eastow","XC192280.mp3"],["eastow","XC192282.mp3"],["eastow","XC196132.mp3"],["eastow","XC293823.mp3"],["eastow","XC294011.mp3"],["eastow","XC310836.mp3"],["eastow","XC316002.mp3"],["eastow","XC317101.mp3"],["eastow","XC362457.mp3"],["eastow","XC370508.mp3"],["eastow","XC375267.mp3"],["eastow","XC388583.mp3"],["eastow","XC429256.mp3"],["eastow","XC433090.mp3"],["eastow","XC469870.mp3"],["eastow","XC476567.mp3"],["eastow","XC486975.mp3"]];
+const GN={G1:"Regularization-tuned probe",G2:"Epoch-tuned probe"};
+const SP={amecro:"American Crow",amerob:"American Robin",astfly:"Ash-throated Flycatcher",barswa:"Barn Swallow",bewwre:"Bewick's Wren",eastow:"Eastern Towhee"},SPK=Object.keys(SP);
+
+// ---------- stats (exact permutation p-values; n<=6 so <=720 permutations) ----------
+const mean=a=>a.reduce((s,v)=>s+v,0)/a.length;
+function rk(a){const o=a.map((v,i)=>[v,i]).sort((p,q)=>p[0]-q[0]),r=Array(a.length);for(let i=0;i<o.length;){let j=i;while(j+1<o.length&&o[j+1][0]==o[i][0])j++;for(let k=i;k<=j;k++)r[o[k][1]]=(i+j)/2+1;i=j+1}return r}
+function pear(x,y){const mx=mean(x),my=mean(y);let n=0,a=0,b=0;x.forEach((v,i)=>{n+=(v-mx)*(y[i]-my);a+=(v-mx)**2;b+=(y[i]-my)**2});return n/Math.sqrt(a*b)}
+function kend(x,y){let c=0,tx=0,ty=0;for(let i=0;i<x.length;i++)for(let j=i+1;j<x.length;j++){const a=Math.sign(x[i]-x[j]),b=Math.sign(y[i]-y[j]);c+=a*b;tx+=a*a;ty+=b*b}return c/Math.sqrt(tx*ty)}
+const FN={Pearson:pear,Spearman:(x,y)=>pear(rk(x),rk(y)),Kendall:kend};
+function perms(a){if(a.length<2)return[a];const o=[];a.forEach((v,i)=>perms([...a.slice(0,i),...a.slice(i+1)]).forEach(p=>o.push([v,...p])));return o}
+function corr(m,x,y){const f=FN[m],r=f(x,y);if(isNaN(r))return{r:NaN,p:NaN};let h=0,t=0;perms(y).forEach(p=>{t++;if(Math.abs(f(x,p))>=Math.abs(r)-1e-9)h++});return{r,p:h/t}}
+// ---------- UI ----------
+const st={};const $=id=>document.getElementById(id);
+function grp(id,title,items,type,def,labels){return`<fieldset id="${id}"><legend>${title}${type=="checkbox"?`<span><a data-all="${id}" data-on="1">All</a><a data-all="${id}" data-on="0">None</a></span>`:""}</legend>`+items.map((v,i)=>`<label><input type="${type}" name="${id}" value="${v}" ${def.includes(v)?"checked":""}>${labels?labels[i]:v}</label>`).join("")+`</fieldset>`}
+$("side").innerHTML=grp("m","Models",M.map((_,i)=>i),"checkbox",[0,1,2,3,4,5],M)+grp("s","Shots per class",SHOTS,"checkbox",[25])+grp("g","Ground truth",["G1","G2"],"radio",["G1"],Object.values(GN))+grp("t","Transferability scores",TS,"checkbox",TS)+grp("r","Rank metric",MS,"radio",["Spearman"]);
+const get=id=>[...document.querySelectorAll(`input[name=${id}]:checked`)].map(e=>id=="g"?e.value:isNaN(e.value)?e.value:+e.value);
+document.querySelectorAll("[data-all]").forEach(a=>a.onclick=()=>{document.querySelectorAll(`input[name=${a.dataset.all}]`).forEach(e=>e.checked=a.dataset.on=="1");render()});
+$("side").onchange=render;
+[["t1","res"],["t2","aud"]].forEach(([b,p])=>$(b).onclick=()=>{["res","aud"].forEach(x=>$(x).classList.toggle("hide",x!=p));$("t1").classList.toggle("on",b=="t1");$("t2").classList.toggle("on",b=="t2")});
+
+function bars(t,sh,mi){const v=mi.map(i=>SC[sh][t][i]),lo=Math.min(...v),hi=Math.max(...v);
+return`<div class="card"><h3>${t}</h3>`+mi.map((i,k)=>`<div class="bar"><span>${SH[i]}</span><span><i style="width:${hi==lo?100:12+88*(v[k]-lo)/(hi-lo)}%;background:${COL[i]}"></i></span><b>${v[k].toFixed(4)}</b></div>`).join("")+`<small style="color:var(--mut)">bar length scaled within this score</small></div>`}
+const nm=r=>+(+r).toFixed(1);
+// integer ranks, 1 = best: higher a wins; ties go to lower b (test loss), then to list order
+const rkI=(a,b)=>{const o=a.map((_,i)=>i).sort((i,j)=>a[j]-a[i]||(b?b[i]-b[j]:0)||i-j),r=Array(a.length);o.forEach((i,k)=>r[i]=k+1);return r};
+const gtRank=(sh,g,mi)=>rkI(mi.map(i=>AC[g][sh][i]),mi.map(i=>LOSS[g][sh][i]));
+const scRank=(t,sh,mi)=>rkI(mi.map(i=>SC[sh][t][i]));
+function scatter(t,sh,g,mi){const x=mi.map(i=>SC[sh][t][i]),y=mi.map(i=>AC[g][sh][i]),W=440,H=270,L=50,R=24,T=22,B=40,x0=Math.min(...x),x1=Math.max(...x),y0=Math.min(...y),y1=Math.max(...y),
+sx=v=>L+14+(W-L-R-28)*(x1==x0?.5:(v-x0)/(x1-x0)),sy=v=>H-B-12-(H-B-T-24)*(y1==y0?.5:(v-y0)/(y1-y0));
+return`<div class="card"><h3>${t} <small>vs accuracy</small></h3><svg viewBox="0 0 ${W} ${H}" width="100%"><line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="#25352d"/><line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="#25352d"/>`+
+mi.map((i,k)=>{const r=sx(x[k])>W*.6;return`<circle cx="${sx(x[k])}" cy="${sy(y[k])}" r="6" fill="${COL[i]}"/><text x="${sx(x[k])+(r?-10:10)}" y="${sy(y[k])+4}" text-anchor="${r?"end":"start"}">${SH[i]}</text>`}).join("")+
+`<text x="${L}" y="${H-24}" text-anchor="start">${x0.toPrecision(4)}</text><text x="${W-R}" y="${H-24}" text-anchor="end">${x1.toPrecision(4)}</text><text x="${(L+W-R)/2}" y="${H-6}" text-anchor="middle">${t} score →</text><text x="${L-6}" y="${sy(y1)+4}" text-anchor="end">${y1.toFixed(0)}%</text><text x="${L-6}" y="${sy(y0)+4}" text-anchor="end">${y0.toFixed(0)}%</text><text x="${L}" y="12">test accuracy ↑</text></svg></div>`}
+function rankLines(sh,g,ts,mi){const cols=[...ts.map(t=>scRank(t,sh,mi)),gtRank(sh,g,mi)],names=[...ts,"Ground truth"],n=mi.length,W=760,H=90+n*40,L=130,R=130,T=40,
+px=k=>L+(W-L-R)*k/(cols.length-1),py=r=>T+(H-T-30)*(r-1)/Math.max(1,n-1),last=cols.length-1;
+let s=`<div class="card"><h3>Rank of each model, per score <small>(1 = best; ground truth = test accuracy, ties broken by lower test loss)</small></h3><svg viewBox="0 0 ${W} ${H}" width="100%">`;
+names.forEach((c,k)=>s+=`<line x1="${px(k)}" x2="${px(k)}" y1="${T-8}" y2="${H-22}" stroke="#25352d"/><text x="${px(k)}" y="${T-18}" text-anchor="middle" style="fill:${k==last?"#e8b84a":"#8fa196"}">${c}</text>`);
+mi.forEach((i,j)=>{s+=`<polyline fill="none" stroke="${COL[i]}" stroke-width="2.5" opacity=".9" points="${cols.map((c,k)=>px(k)+","+py(c[j])).join(" ")}"/>`+cols.map((c,k)=>`<circle cx="${px(k)}" cy="${py(c[j])}" r="10" fill="${COL[i]}"/><text x="${px(k)}" y="${py(c[j])+4}" text-anchor="middle" style="fill:#0e1512;font-weight:700">${nm(c[j])}</text>`).join("")+
+`<text x="${px(0)-18}" y="${py(cols[0][j])+4}" text-anchor="end" style="fill:${COL[i]}">${SH[i]}</text><text x="${px(last)+18}" y="${py(cols[last][j])+4}" style="fill:${COL[i]}">${SH[i]}</text>`});
+return s+`</svg></div>`}
+function ranks(sh,g,ts,mi){const gt=gtRank(sh,g,mi),cols=ts.map(t=>scRank(t,sh,mi));
+return`<div class="card"><h3>Rank table <small>(colour = distance from ground-truth rank)</small></h3><table><tr><th>Model</th>${ts.map(t=>`<th>${t}</th>`).join("")}<th>Ground truth</th><th>Accuracy</th><th>Test loss</th></tr>`+
+mi.map((i,k)=>`<tr><td>${M[i]}</td>${cols.map(c=>`<td class="c${Math.min(2,Math.round(Math.abs(c[k]-gt[k])))}">${nm(c[k])}</td>`).join("")}<td><b>${nm(gt[k])}</b></td><td>${AC[g][sh][i].toFixed(2)}%</td><td>${LOSS[g][sh][i].toFixed(4)}</td></tr>`).join("")+`</table></div>`}
+function corrBars(res,ts,m,sh){const W=620,H=290,L=50,T=26,B=52,gap=(W-L-20)/ts.length,bw=Math.min(70,gap*.6),py=v=>T+(H-T-B)*(1-v)/2;
+let s=`<div class="card"><h3>${m} correlation with ground truth <small>(${sh}-shot · gold = p&lt;0.05)</small></h3><svg viewBox="0 0 ${W} ${H}" width="100%">`;
+[1,.5,0,-.5,-1].forEach(v=>s+=`<line x1="${L}" x2="${W-10}" y1="${py(v)}" y2="${py(v)}" stroke="${v?"#1d2b24":"#3a4d43"}"/><text x="${L-8}" y="${py(v)+4}" text-anchor="end">${v}</text>`);
+res.forEach((c,k)=>{const x=L+gap*k+(gap-bw)/2,cx=x+bw/2;s+=`<text x="${cx}" y="${H-28}" text-anchor="middle" style="fill:#e6ebe4;font-size:12px">${ts[k]}</text><text x="${cx}" y="${H-12}" text-anchor="middle">p = ${isNaN(c.p)?"–":c.p.toFixed(3)}</text>`;
+if(isNaN(c.r))return;const y1=py(c.r),y0=py(0);s+=`<rect x="${x}" y="${Math.min(y0,y1)}" width="${bw}" height="${Math.abs(y1-y0)}" rx="3" fill="${c.p<.05?"#e8b84a":"#4d6b5d"}"/><text x="${cx}" y="${c.r>=0?y1-6:y1+14}" text-anchor="middle" style="fill:#e6ebe4">${c.r.toFixed(2)}</text>`});
+return s+`</svg></div>`}
+function corrTable(res,ts,m){return`<div class="card"><h3>${m} table</h3><table><tr><th>Score</th><th>${m}</th><th>p-value</th><th>p&lt;0.05</th></tr>`+ts.map((t,k)=>`<tr><td>${t}</td><td>${isNaN(res[k].r)?"–":res[k].r.toFixed(3)}</td><td>${isNaN(res[k].p)?"–":res[k].p.toFixed(3)}</td><td>${res[k].p<.05?'<span class="sig">★ yes</span>':"no"}</td></tr>`).join("")+`</table></div>`}
+function sweep(shots,g,ts,m,mi){const W=620,H=250,L=44,B=40,T=14,xs=[...shots].sort((a,b)=>b-a),px=k=>L+30+(W-L-60)*k/Math.max(1,xs.length-1),py=v=>T+(H-T-B)*(1-v)/2,C=["#e8b84a","#6fcf97","#7fb3e8","#c79af0"];
+let s=`<div class="card"><h3>${m} correlation as labels get scarcer</h3><svg viewBox="0 0 ${W} ${H}" width="100%">`;
+[1,0,-1].forEach(v=>s+=`<line x1="${L}" x2="${W-10}" y1="${py(v)}" y2="${py(v)}" stroke="#25352d"/><text x="${L-8}" y="${py(v)+4}" text-anchor="end">${v}</text>`);
+xs.forEach((sh,k)=>s+=`<text x="${px(k)}" y="${H-16}" text-anchor="middle">${sh}-shot</text>`);
+ts.forEach((t,j)=>{const pts=xs.map((sh,k)=>[px(k),py(FN[m](mi.map(i=>SC[sh][t][i]),mi.map(i=>AC[g][sh][i])))]);s+=`<polyline fill="none" stroke="${C[j%4]}" stroke-width="2.5" points="${pts.map(p=>p.join(",")).join(" ")}"/>`+pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="${C[j%4]}"/>`).join("")});
+return s+`</svg><div>`+ts.map((t,j)=>`<span style="color:${C[j%4]};margin-right:14px">● ${t}</span>`).join("")+`</div></div>`}
+const sec=(t,b,c="")=>`<h3 class="sh">${t}</h3><div class="row ${c}">${b}</div>`;
+function render(){try{render0()}catch(e){$("res").innerHTML=`<div class="note">UI error: ${e}. Press F12 and open the Console for details.</div>`}}
+function render0(){const mi=get("m"),g=get("g")[0],m=get("r")[0]||"Spearman",shots=get("s").filter(s=>SC[s]&&AC[g]&&AC[g][s]).sort((a,b)=>b-a),ts=TS.filter(t=>get("t").includes(t));
+let h=WARN.map(w=>`<div class="note">${w}</div>`).join("");
+if(!mi.length||!shots.length||!ts.length)h+=`<div class="note">Pick at least one model, one shot count and one score (shot counts without data are skipped).</div>`;
+else{if(mi.length<3)h+=`<div class="note">Rankings and correlations need at least 3 models. Showing score values only.</div>`;
+if(shots.length>1&&mi.length>=3)h+=`<div class="shot"><h2>Shot sweep</h2>${sec("",sweep(shots,g,ts,m,mi),"full")}</div>`;
+shots.forEach(sh=>{h+=`<div class="shot"><h2>${sh}-shot<small>${GN[g]}${SRC[g+"_"+sh]?" · "+SRC[g+"_"+sh]:""}</small></h2>`+sec("Scores per model",ts.map(t=>bars(t,sh,mi)).join(""));
+if(mi.length>=3){const y=mi.map(i=>AC[g][sh][i]),res=ts.map(t=>corr(m,mi.map(i=>SC[sh][t][i]),y));
+h+=sec("Score vs test accuracy",ts.map(t=>scatter(t,sh,g,mi)).join(""))+sec("Ranks: transferability scores vs ground truth",rankLines(sh,g,ts,mi),"full")+sec("Rank table",ranks(sh,g,ts,mi),"full")+sec("How well each score predicts the ranking",corrBars(res,ts,m,sh)+corrTable(res,ts,m),"full")}h+=`</div>`})}
+$("res").innerHTML=h}
+// ---------- audio demo (predictions are MOCK until real per-clip probabilities are exported) ----------
+const hash=s=>{let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return(h>>>0)/4294967296};
+$("aud").innerHTML=`<h2>Audio demo <small style="color:var(--mut);font:13px system-ui">predictions are simulated</small></h2><div class="note">Static demo: the clip plays from <code>curated_dataset/eval</code> next to this file, but the predicted species is simulated (correct about as often as the model's real test accuracy).</div>
+<div class="ctl"><label>Species<select id="asp"><option value="">All</option>${SPK.map(k=>`<option value="${k}">${SP[k]}</option>`).join("")}</select></label><label>Clip<select id="acl"></select></label>
+<label>Model<select id="amo">${M.map((m,i)=>`<option value="${i}">${m}</option>`).join("")}</select></label><label>Shots<select id="ash">${SHOTS.map(s=>`<option>${s}</option>`).join("")}</select></label>
+<label>Training<select id="agt">${Object.entries(GN).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></label></div>
+<audio id="ap" controls style="width:100%;max-width:520px"></audio><div class="card" style="margin-top:12px;max-width:520px" id="apr"></div>`;
+function fillClips(){const f=$("asp").value;if(!CLIPS.length){$("acl").innerHTML="";$("apr").innerHTML=`<div class="note">No audio clips found. The terminal shows where app.py looked. If curated_dataset is elsewhere, start it with: python app.py --audio "&lt;path to curated_dataset&gt;"</div>`;return}$("acl").innerHTML=CLIPS.filter(c=>!f||c[0]==f).map(c=>`<option value="${c[0]}/${c[1]}">${c[1]}</option>`).join("");pred()}
+function pred(){const v=$("acl").value;if(!v)return;const[sp,file]=v.split("/"),m=+$("amo").value,sh=$("ash").value,g=$("agt").value;$("ap").src=`curated_dataset/eval/${sp}/${file}`;
+const ok=hash(v+m+sh+g)<AC[g][sh][m]/100,wrong=SPK.filter(k=>k!=sp),pk=ok?sp:wrong[Math.floor(hash(v+"w"+m)*5)],
+raw=(n)=>SPK.map(k=>(k==(n)?2.2:0.15)+hash(v+k+n)*.6),pr=raw(pk),z=pr.reduce((a,b)=>a+b);
+$("apr").innerHTML=`<div>This sounds like</div><div class="pred">${SP[pk]}</div><div class="${ok?"c0":"c2"}">${ok?"✓ correct":"✗ wrong"} · true species: ${SP[sp]}</div><div style="margin-top:10px">`+SPK.map((k,i)=>`<div class="bar"><span>${k}</span><span><i style="width:${100*pr[i]/z}%;background:${k==pk?"var(--acc)":"#3a4d43"}"></i></span><b>${(100*pr[i]/z).toFixed(0)}%</b></div>`).join("")+`</div><h3 style="margin-top:12px;font-size:14px">All models on this clip</h3><table>`+
+M.map((n,i)=>{const o=hash(v+i+sh+g)<AC[g][sh][i]/100,pm=o?sp:wrong[Math.floor(hash(v+"w"+i)*5)];return`<tr><td>${n}</td><td>${SP[pm]}</td><td class="${o?"c0":"c2"}">${o?"✓":"✗"}</td></tr>`}).join("")+`</table>`}
+$("asp").onchange=fillClips;["acl","amo","ash","agt"].forEach(i=>$(i).onchange=pred);
+fillClips();render();
+</script></body></html>

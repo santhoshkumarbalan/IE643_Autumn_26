@@ -1,0 +1,68 @@
+{
+    "AVES-bio": {
+        "shots_per_class": 5,
+        "total_train_samples": 30,
+        "feature_dim": 768,
+        "optimal_epoch": 62,
+        "cv_val_loss": 1.5138477325439452,
+        "cv_val_acc": 0.5666666746139526,
+        "final_train_loss": 0.45474478602409363,
+        "final_train_accuracy": 1.0,
+        "weights_path": "..\\classification_models_trained\\trained_models_epoch_tuned_5_shot\\Linear\\AVES-bio_linear.pt"
+    },
+    "BirdAVES-biox-base": {
+        "shots_per_class": 5,
+        "total_train_samples": 30,
+        "feature_dim": 768,
+        "optimal_epoch": 90,
+        "cv_val_loss": 1.420954132080078,
+        "cv_val_acc": 0.5333333373069763,
+        "final_train_loss": 0.20564201474189758,
+        "final_train_accuracy": 1.0,
+        "weights_path": "..\\classification_models_trained\\trained_models_epoch_tuned_5_shot\\Linear\\BirdAVES-biox-base_linear.pt"
+    },
+    "DistilHuBERT": {
+        "shots_per_class": 5,
+        "total_train_samples": 30,
+        "feature_dim": 768,
+        "optimal_epoch": 56,
+        "cv_val_loss": 1.4763458490371704,
+        "cv_val_acc": 0.5333333373069763,
+        "final_train_loss": 0.447907954454422,
+        "final_train_accuracy": 1.0,
+        "weights_path": "..\\classification_models_trained\\trained_models_epoch_tuned_5_shot\\Linear\\DistilHuBERT_linear.pt"
+    },
+    "HuBERT": {
+        "shots_per_class": 5,
+        "total_train_samples": 30,
+        "feature_dim": 768,
+        "optimal_epoch": 31,
+        "cv_val_loss": 1.710564923286438,
+        "cv_val_acc": 0.3000000059604645,
+        "final_train_loss": 0.8590517640113831,
+        "final_train_accuracy": 0.9666666388511658,
+        "weights_path": "..\\classification_models_trained\\trained_models_epoch_tuned_5_shot\\Linear\\HuBERT_linear.pt"
+    },
+    "MusicHuBERT": {
+        "shots_per_class": 5,
+        "total_train_samples": 30,
+        "feature_dim": 768,
+        "optimal_epoch": 40,
+        "cv_val_loss": 1.5826189517974854,
+        "cv_val_acc": 0.4333333373069763,
+        "final_train_loss": 0.5089859366416931,
+        "final_train_accuracy": 1.0,
+        "weights_path": "..\\classification_models_trained\\trained_models_epoch_tuned_5_shot\\Linear\\MusicHuBERT_linear.pt"
+    },
+    "WavLM": {
+        "shots_per_class": 5,
+        "total_train_samples": 30,
+        "feature_dim": 768,
+        "optimal_epoch": 46,
+        "cv_val_loss": 1.5377071857452393,
+        "cv_val_acc": 0.4666666746139526,
+        "final_train_loss": 0.6587440371513367,
+        "final_train_accuracy": 0.8999999761581421,
+        "weights_path": "..\\classification_models_trained\\trained_models_epoch_tuned_5_shot\\Linear\\WavLM_linear.pt"
+    }
+}

@@ -1,0 +1,729 @@
+{
+    "eval_source": "epoch_tuned",
+    "correlations": [
+        {
+            "shots": 1,
+            "metric": "LogME",
+            "spearman_rho": 0.0,
+            "spearman_pvalue": 1.0,
+            "kendall_tau": 0.0,
+            "kendall_pvalue": 1.0,
+            "pearson_r": -0.2725660387503746,
+            "pearson_pvalue": 0.6012757134046247
+        },
+        {
+            "shots": 1,
+            "metric": "LFC",
+            "spearman_rho": 0.3188740696088466,
+            "spearman_pvalue": 0.537900560470205,
+            "kendall_tau": 0.27602622373694163,
+            "kendall_pvalue": 0.44421673013860674,
+            "pearson_r": 0.19181981097760611,
+            "pearson_pvalue": 0.7157992731492914
+        },
+        {
+            "shots": 1,
+            "metric": "LGC",
+            "spearman_rho": 0.3188740696088466,
+            "spearman_pvalue": 0.537900560470205,
+            "kendall_tau": 0.27602622373694163,
+            "kendall_pvalue": 0.44421673013860674,
+            "pearson_r": 0.19181991037311402,
+            "pearson_pvalue": 0.7157991295418953
+        },
+        {
+            "shots": 1,
+            "metric": "LGC-CLS",
+            "spearman_rho": 0.5217939320872036,
+            "spearman_pvalue": 0.2883432338003935,
+            "kendall_tau": 0.41403933560541256,
+            "kendall_pvalue": 0.2511180012744736,
+            "pearson_r": 0.6344169801913369,
+            "pearson_pvalue": 0.17604615863665735
+        },
+        {
+            "shots": 1,
+            "metric": "SVM-Margin",
+            "spearman_rho": 0.3188740696088466,
+            "spearman_pvalue": 0.537900560470205,
+            "kendall_tau": 0.27602622373694163,
+            "kendall_pvalue": 0.44421673013860674,
+            "pearson_r": 0.20645973884939267,
+            "pearson_pvalue": 0.6947106293013965
+        },
+        {
+            "shots": 5,
+            "metric": "LogME",
+            "spearman_rho": 0.6571428571428573,
+            "spearman_pvalue": 0.1561749271137024,
+            "kendall_tau": 0.6,
+            "kendall_pvalue": 0.1361111111111111,
+            "pearson_r": 0.6545399103208023,
+            "pearson_pvalue": 0.15839994498624232
+        },
+        {
+            "shots": 5,
+            "metric": "LFC",
+            "spearman_rho": 0.6571428571428573,
+            "spearman_pvalue": 0.1561749271137024,
+            "kendall_tau": 0.6,
+            "kendall_pvalue": 0.1361111111111111,
+            "pearson_r": 0.8030981823844069,
+            "pearson_pvalue": 0.05433851486263911
+        },
+        {
+            "shots": 5,
+            "metric": "LGC",
+            "spearman_rho": 0.6571428571428573,
+            "spearman_pvalue": 0.1561749271137024,
+            "kendall_tau": 0.6,
+            "kendall_pvalue": 0.1361111111111111,
+            "pearson_r": 0.8030983246435548,
+            "pearson_pvalue": 0.05433843910255943
+        },
+        {
+            "shots": 5,
+            "metric": "LGC-CLS",
+            "spearman_rho": 0.8285714285714287,
+            "spearman_pvalue": 0.04156268221574335,
+            "kendall_tau": 0.7333333333333333,
+            "kendall_pvalue": 0.05555555555555555,
+            "pearson_r": 0.8434350366476245,
+            "pearson_pvalue": 0.03484997542295748
+        },
+        {
+            "shots": 5,
+            "metric": "SVM-Margin",
+            "spearman_rho": 0.6,
+            "spearman_pvalue": 0.208,
+            "kendall_tau": 0.4666666666666666,
+            "kendall_pvalue": 0.2722222222222222,
+            "pearson_r": 0.72897975545604,
+            "pearson_pvalue": 0.10022447359306763
+        },
+        {
+            "shots": 5,
+            "metric": "SVM-LOO-Margin",
+            "spearman_rho": 0.5428571428571429,
+            "spearman_pvalue": 0.26570262390670546,
+            "kendall_tau": 0.3333333333333333,
+            "kendall_pvalue": 0.46944444444444444,
+            "pearson_r": 0.47986698031828495,
+            "pearson_pvalue": 0.3354495706592448
+        },
+        {
+            "shots": 10,
+            "metric": "LogME",
+            "spearman_rho": 0.8406680016960503,
+            "spearman_pvalue": 0.0360575728451592,
+            "kendall_tau": 0.6900655593423543,
+            "kendall_pvalue": 0.05578260870684413,
+            "pearson_r": 0.6981855356305269,
+            "pearson_pvalue": 0.12289151915077921
+        },
+        {
+            "shots": 10,
+            "metric": "LFC",
+            "spearman_rho": 0.8116794499134279,
+            "spearman_pvalue": 0.04985758510134036,
+            "kendall_tau": 0.6900655593423543,
+            "kendall_pvalue": 0.05578260870684413,
+            "pearson_r": 0.6840877750353124,
+            "pearson_pvalue": 0.133936696467524
+        },
+        {
+            "shots": 10,
+            "metric": "LGC",
+            "spearman_rho": 0.8116794499134279,
+            "spearman_pvalue": 0.04985758510134036,
+            "kendall_tau": 0.6900655593423543,
+            "kendall_pvalue": 0.05578260870684413,
+            "pearson_r": 0.6840877807261274,
+            "pearson_pvalue": 0.13393669192604943
+        },
+        {
+            "shots": 10,
+            "metric": "LGC-CLS",
+            "spearman_rho": 0.9276336570439175,
+            "spearman_pvalue": 0.00766584418747316,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.785498756347031,
+            "pearson_pvalue": 0.06408149014883187
+        },
+        {
+            "shots": 10,
+            "metric": "SVM-Margin",
+            "spearman_rho": 0.7247137945655605,
+            "spearman_pvalue": 0.10324280462370765,
+            "kendall_tau": 0.5520524474738833,
+            "kendall_pvalue": 0.12597116307723114,
+            "pearson_r": 0.7440911027188465,
+            "pearson_pvalue": 0.08985439013644873
+        },
+        {
+            "shots": 10,
+            "metric": "SVM-LOO-Margin",
+            "spearman_rho": 0.7247137945655605,
+            "spearman_pvalue": 0.10324280462370765,
+            "kendall_tau": 0.5520524474738833,
+            "kendall_pvalue": 0.12597116307723114,
+            "pearson_r": 0.6468195362224097,
+            "pearson_pvalue": 0.16507742312768015
+        },
+        {
+            "shots": 15,
+            "metric": "LogME",
+            "spearman_rho": 0.8857142857142858,
+            "spearman_pvalue": 0.01884548104956266,
+            "kendall_tau": 0.7333333333333333,
+            "kendall_pvalue": 0.05555555555555555,
+            "pearson_r": 0.9474529216874916,
+            "pearson_pvalue": 0.0040692467822819435
+        },
+        {
+            "shots": 15,
+            "metric": "LFC",
+            "spearman_rho": 0.7142857142857143,
+            "spearman_pvalue": 0.11078717201166179,
+            "kendall_tau": 0.4666666666666666,
+            "kendall_pvalue": 0.2722222222222222,
+            "pearson_r": 0.7055750200938371,
+            "pearson_pvalue": 0.11726783115789263
+        },
+        {
+            "shots": 15,
+            "metric": "LGC",
+            "spearman_rho": 0.7142857142857143,
+            "spearman_pvalue": 0.11078717201166179,
+            "kendall_tau": 0.4666666666666666,
+            "kendall_pvalue": 0.2722222222222222,
+            "pearson_r": 0.7055751340207941,
+            "pearson_pvalue": 0.11726774534290034
+        },
+        {
+            "shots": 15,
+            "metric": "LGC-CLS",
+            "spearman_rho": 0.7142857142857143,
+            "spearman_pvalue": 0.11078717201166179,
+            "kendall_tau": 0.4666666666666666,
+            "kendall_pvalue": 0.2722222222222222,
+            "pearson_r": 0.7079368747952963,
+            "pearson_pvalue": 0.1154946844498624
+        },
+        {
+            "shots": 15,
+            "metric": "SVM-Margin",
+            "spearman_rho": 0.7714285714285715,
+            "spearman_pvalue": 0.07239650145772594,
+            "kendall_tau": 0.6,
+            "kendall_pvalue": 0.1361111111111111,
+            "pearson_r": 0.8123508288327568,
+            "pearson_pvalue": 0.0495145460138123
+        },
+        {
+            "shots": 15,
+            "metric": "SVM-LOO-Margin",
+            "spearman_rho": 0.7714285714285715,
+            "spearman_pvalue": 0.07239650145772594,
+            "kendall_tau": 0.6,
+            "kendall_pvalue": 0.1361111111111111,
+            "pearson_r": 0.8607369703499206,
+            "pearson_pvalue": 0.027740840213087335
+        },
+        {
+            "shots": 20,
+            "metric": "LogME",
+            "spearman_rho": 0.8986451052612952,
+            "spearman_pvalue": 0.014888622005580315,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.9150387531454659,
+            "pearson_pvalue": 0.01052097749637838
+        },
+        {
+            "shots": 20,
+            "metric": "LFC",
+            "spearman_rho": 0.9276336570439175,
+            "spearman_pvalue": 0.00766584418747316,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.7802412803847045,
+            "pearson_pvalue": 0.0671343400220299
+        },
+        {
+            "shots": 20,
+            "metric": "LGC",
+            "spearman_rho": 0.9276336570439175,
+            "spearman_pvalue": 0.00766584418747316,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.7802412121664276,
+            "pearson_pvalue": 0.06713438005492942
+        },
+        {
+            "shots": 20,
+            "metric": "LGC-CLS",
+            "spearman_rho": 0.9856107606091623,
+            "spearman_pvalue": 0.00030908566784966984,
+            "kendall_tau": 0.9660917830792959,
+            "kendall_pvalue": 0.007410254402604282,
+            "pearson_r": 0.8349448210567018,
+            "pearson_pvalue": 0.038616501520258154
+        },
+        {
+            "shots": 20,
+            "metric": "SVM-Margin",
+            "spearman_rho": 0.8986451052612952,
+            "spearman_pvalue": 0.014888622005580315,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.8708707371161326,
+            "pearson_pvalue": 0.02393497546967
+        },
+        {
+            "shots": 20,
+            "metric": "SVM-LOO-Margin",
+            "spearman_rho": 0.8986451052612952,
+            "spearman_pvalue": 0.014888622005580315,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.9177413840799009,
+            "pearson_pvalue": 0.009871419204307171
+        },
+        {
+            "shots": 25,
+            "metric": "LogME",
+            "spearman_rho": 0.9276336570439175,
+            "spearman_pvalue": 0.00766584418747316,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.9428790414777675,
+            "pearson_pvalue": 0.004801018610557513
+        },
+        {
+            "shots": 25,
+            "metric": "LFC",
+            "spearman_rho": 0.7247137945655605,
+            "spearman_pvalue": 0.10324280462370765,
+            "kendall_tau": 0.5520524474738833,
+            "kendall_pvalue": 0.12597116307723114,
+            "pearson_r": 0.7339818320484093,
+            "pearson_pvalue": 0.09673602215140426
+        },
+        {
+            "shots": 25,
+            "metric": "LGC",
+            "spearman_rho": 0.7247137945655605,
+            "spearman_pvalue": 0.10324280462370765,
+            "kendall_tau": 0.5520524474738833,
+            "kendall_pvalue": 0.12597116307723114,
+            "pearson_r": 0.7339818147569385,
+            "pearson_pvalue": 0.09673603411547715
+        },
+        {
+            "shots": 25,
+            "metric": "LGC-CLS",
+            "spearman_rho": 0.8406680016960503,
+            "spearman_pvalue": 0.0360575728451592,
+            "kendall_tau": 0.6900655593423543,
+            "kendall_pvalue": 0.05578260870684413,
+            "pearson_r": 0.7763853803918278,
+            "pearson_pvalue": 0.0694144905501263
+        },
+        {
+            "shots": 25,
+            "metric": "SVM-Margin",
+            "spearman_rho": 0.9276336570439175,
+            "spearman_pvalue": 0.00766584418747316,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.8822193941323819,
+            "pearson_pvalue": 0.019991464429263844
+        },
+        {
+            "shots": 25,
+            "metric": "SVM-LOO-Margin",
+            "spearman_rho": 0.9276336570439175,
+            "spearman_pvalue": 0.00766584418747316,
+            "kendall_tau": 0.8280786712108251,
+            "kendall_pvalue": 0.021717302554090816,
+            "pearson_r": 0.896371742836456,
+            "pearson_pvalue": 0.015551801147528225
+        }
+    ],
+    "model_level_data": {
+        "1_shot": [
+            {
+                "Model": "AVES-bio",
+                "Test_Accuracy": 0.35333332419395447,
+                "LogME": 0.929705715721933,
+                "LFC": 0.9012071853963363,
+                "LGC": 0.9012067764961391,
+                "LGC-CLS": 0.9227297493685227,
+                "SVM-Margin": -0.8971851567744252,
+                "SVM-LOO-Margin": null
+            },
+            {
+                "Model": "BirdAVES-biox-base",
+                "Test_Accuracy": 0.3866666555404663,
+                "LogME": 1.1217030807931614,
+                "LFC": 0.959781067564811,
+                "LGC": 0.9597811414905999,
+                "LGC-CLS": 0.9526310810733546,
+                "SVM-Margin": -0.859807810017853,
+                "SVM-LOO-Margin": null
+            },
+            {
+                "Model": "DistilHuBERT",
+                "Test_Accuracy": 0.35333332419395447,
+                "LogME": 1.2157074348494583,
+                "LFC": 0.7996965274065837,
+                "LGC": 0.7996966855718483,
+                "LGC-CLS": 0.7834855321354126,
+                "SVM-Margin": -0.9499367052920727,
+                "SVM-LOO-Margin": null
+            },
+            {
+                "Model": "HuBERT",
+                "Test_Accuracy": 0.3266666531562805,
+                "LogME": 0.9217615738603817,
+                "LFC": 0.8334995913664397,
+                "LGC": 0.8334996449800358,
+                "LGC-CLS": 0.8045293152609881,
+                "SVM-Margin": -0.9266297100694929,
+                "SVM-LOO-Margin": null
+            },
+            {
+                "Model": "MusicHuBERT",
+                "Test_Accuracy": 0.23333333432674408,
+                "LogME": 1.0912134460219438,
+                "LFC": 0.9246219071745964,
+                "LGC": 0.924621889401344,
+                "LGC-CLS": 0.8128404858355609,
+                "SVM-Margin": -0.8767121702851106,
+                "SVM-LOO-Margin": null
+            },
+            {
+                "Model": "WavLM",
+                "Test_Accuracy": 0.273333340883255,
+                "LogME": 1.3672263991136318,
+                "LFC": 0.7783905401033514,
+                "LGC": 0.7783905304839173,
+                "LGC-CLS": 0.7508383164794763,
+                "SVM-Margin": -0.9784048430443425,
+                "SVM-LOO-Margin": null
+            }
+        ],
+        "5_shot": [
+            {
+                "Model": "AVES-bio",
+                "Test_Accuracy": 0.6466666460037231,
+                "LogME": -0.12731763368619375,
+                "LFC": 0.37991162672788514,
+                "LGC": 0.3799118223207667,
+                "LGC-CLS": 0.35892718648314037,
+                "SVM-Margin": -4.453364419086559,
+                "SVM-LOO-Margin": -0.1642177460889242
+            },
+            {
+                "Model": "BirdAVES-biox-base",
+                "Test_Accuracy": 0.5733333230018616,
+                "LogME": -0.15025723984557848,
+                "LFC": 0.3536349018197031,
+                "LGC": 0.3536349024983158,
+                "LGC-CLS": 0.29476590907140415,
+                "SVM-Margin": -4.611145290483781,
+                "SVM-LOO-Margin": -0.14141289674175017
+            },
+            {
+                "Model": "DistilHuBERT",
+                "Test_Accuracy": 0.4533333480358124,
+                "LogME": -0.12929651346835064,
+                "LFC": 0.27408393747966553,
+                "LGC": 0.2740839627634949,
+                "LGC-CLS": 0.26210004852241364,
+                "SVM-Margin": -4.810257182117992,
+                "SVM-LOO-Margin": -0.17452740107208561
+            },
+            {
+                "Model": "HuBERT",
+                "Test_Accuracy": 0.5,
+                "LogME": -0.2141672332993596,
+                "LFC": 0.23561440971522654,
+                "LGC": 0.23561435853464097,
+                "LGC-CLS": 0.2200345486576546,
+                "SVM-Margin": -5.336121208884426,
+                "SVM-LOO-Margin": -0.27705998988281244
+            },
+            {
+                "Model": "MusicHuBERT",
+                "Test_Accuracy": 0.47333332896232605,
+                "LogME": -0.29150114888052014,
+                "LFC": 0.3306446552602015,
+                "LGC": 0.33064466507465684,
+                "LGC-CLS": 0.2843136822396657,
+                "SVM-Margin": -4.849972510241144,
+                "SVM-LOO-Margin": -0.1783317294346331
+            },
+            {
+                "Model": "WavLM",
+                "Test_Accuracy": 0.4266666769981384,
+                "LogME": -0.40183634536944113,
+                "LFC": 0.24059039960499118,
+                "LGC": 0.24059049157862833,
+                "LGC-CLS": 0.2186982244812057,
+                "SVM-Margin": -5.216477783440714,
+                "SVM-LOO-Margin": -0.23655496991280828
+            }
+        ],
+        "10_shot": [
+            {
+                "Model": "AVES-bio",
+                "Test_Accuracy": 0.6666666865348816,
+                "LogME": -0.1683020481264004,
+                "LFC": 0.39663783727647706,
+                "LGC": 0.39663782583669027,
+                "LGC-CLS": 0.3815616653466355,
+                "SVM-Margin": -6.717486665322907,
+                "SVM-LOO-Margin": 0.03531988485686768
+            },
+            {
+                "Model": "BirdAVES-biox-base",
+                "Test_Accuracy": 0.6333333253860474,
+                "LogME": -0.051918663378231845,
+                "LFC": 0.3857839670966058,
+                "LGC": 0.38578399122865786,
+                "LGC-CLS": 0.33338706030798637,
+                "SVM-Margin": -6.663841498384554,
+                "SVM-LOO-Margin": 0.0537886064392238
+            },
+            {
+                "Model": "DistilHuBERT",
+                "Test_Accuracy": 0.6333333253860474,
+                "LogME": -0.17576420053159936,
+                "LFC": 0.2669017245247421,
+                "LGC": 0.2669017727683561,
+                "LGC-CLS": 0.2554047087524694,
+                "SVM-Margin": -7.765944040455577,
+                "SVM-LOO-Margin": 0.012311001267038803
+            },
+            {
+                "Model": "HuBERT",
+                "Test_Accuracy": 0.6266666650772095,
+                "LogME": -0.26490833625404836,
+                "LFC": 0.23602141658143835,
+                "LGC": 0.23602144085177104,
+                "LGC-CLS": 0.2230812634183902,
+                "SVM-Margin": -8.526952292154293,
+                "SVM-LOO-Margin": -0.013909146107489683
+            },
+            {
+                "Model": "MusicHuBERT",
+                "Test_Accuracy": 0.5866666436195374,
+                "LogME": -0.36242769684629916,
+                "LFC": 0.23104671992258352,
+                "LGC": 0.2310467505985453,
+                "LGC-CLS": 0.19744720958562412,
+                "SVM-Margin": -9.422261873501968,
+                "SVM-LOO-Margin": -0.058247257724796365
+            },
+            {
+                "Model": "WavLM",
+                "Test_Accuracy": 0.5600000023841858,
+                "LogME": -0.3072857306166951,
+                "LFC": 0.2521457628225949,
+                "LGC": 0.25214578634490653,
+                "LGC-CLS": 0.2205556652614199,
+                "SVM-Margin": -8.495825192814886,
+                "SVM-LOO-Margin": -0.007652405657352032
+            }
+        ],
+        "15_shot": [
+            {
+                "Model": "AVES-bio",
+                "Test_Accuracy": 0.6733333468437195,
+                "LogME": -0.19919901957303024,
+                "LFC": 0.34568596740191093,
+                "LGC": 0.34568598038043763,
+                "LGC-CLS": 0.3261701057325576,
+                "SVM-Margin": -9.552588527989567,
+                "SVM-LOO-Margin": 0.055656427041837944
+            },
+            {
+                "Model": "BirdAVES-biox-base",
+                "Test_Accuracy": 0.6866666674613953,
+                "LogME": -0.10583840488800615,
+                "LFC": 0.3348355874625982,
+                "LGC": 0.3348356904102345,
+                "LGC-CLS": 0.2867205588755699,
+                "SVM-Margin": -9.359931057085742,
+                "SVM-LOO-Margin": 0.07382873536791136
+            },
+            {
+                "Model": "DistilHuBERT",
+                "Test_Accuracy": 0.6933333277702332,
+                "LogME": -0.15891027729538035,
+                "LFC": 0.22546464645122724,
+                "LGC": 0.2254646857039285,
+                "LGC-CLS": 0.2143596296993265,
+                "SVM-Margin": -11.309584047644591,
+                "SVM-LOO-Margin": 0.037451639278983914
+            },
+            {
+                "Model": "HuBERT",
+                "Test_Accuracy": 0.6266666650772095,
+                "LogME": -0.26718539777488587,
+                "LFC": 0.21759593520538312,
+                "LGC": 0.2175959725396915,
+                "LGC-CLS": 0.20715948677966986,
+                "SVM-Margin": -11.762270961268825,
+                "SVM-LOO-Margin": 0.018723891478267685
+            },
+            {
+                "Model": "MusicHuBERT",
+                "Test_Accuracy": 0.6066666841506958,
+                "LogME": -0.3486114746120132,
+                "LFC": 0.17442730913704435,
+                "LGC": 0.1744273050431022,
+                "LGC-CLS": 0.15644803610869615,
+                "SVM-Margin": -13.504352842455933,
+                "SVM-LOO-Margin": -0.020067987627948727
+            },
+            {
+                "Model": "WavLM",
+                "Test_Accuracy": 0.6333333253860474,
+                "LogME": -0.305131257107795,
+                "LFC": 0.20370151363524394,
+                "LGC": 0.2037015581818768,
+                "LGC-CLS": 0.17615803093388005,
+                "SVM-Margin": -12.879074860424954,
+                "SVM-LOO-Margin": -0.013949499172218533
+            }
+        ],
+        "20_shot": [
+            {
+                "Model": "AVES-bio",
+                "Test_Accuracy": 0.7200000286102295,
+                "LogME": -0.17001659403156857,
+                "LFC": 0.3067347522926103,
+                "LGC": 0.30673473576376703,
+                "LGC-CLS": 0.2846134777007136,
+                "SVM-Margin": -12.626394952179234,
+                "SVM-LOO-Margin": 0.06621102912567413
+            },
+            {
+                "Model": "BirdAVES-biox-base",
+                "Test_Accuracy": 0.6933333277702332,
+                "LogME": -0.15213442313196016,
+                "LFC": 0.2925116928029947,
+                "LGC": 0.2925117238775718,
+                "LGC-CLS": 0.2434714983962429,
+                "SVM-Margin": -12.12223283274577,
+                "SVM-LOO-Margin": 0.07077112531397699
+            },
+            {
+                "Model": "DistilHuBERT",
+                "Test_Accuracy": 0.6933333277702332,
+                "LogME": -0.2065764828997179,
+                "LFC": 0.20293285582479226,
+                "LGC": 0.2029328603233079,
+                "LGC-CLS": 0.19158023857750112,
+                "SVM-Margin": -14.881466124680536,
+                "SVM-LOO-Margin": 0.05172188584721272
+            },
+            {
+                "Model": "HuBERT",
+                "Test_Accuracy": 0.6866666674613953,
+                "LogME": -0.25645950832871095,
+                "LFC": 0.1857259109749337,
+                "LGC": 0.18572591827462143,
+                "LGC-CLS": 0.17139168392917292,
+                "SVM-Margin": -15.786605107007881,
+                "SVM-LOO-Margin": 0.02067690856297669
+            },
+            {
+                "Model": "MusicHuBERT",
+                "Test_Accuracy": 0.5799999833106995,
+                "LogME": -0.3420129271615556,
+                "LFC": 0.138450783864237,
+                "LGC": 0.13845079760867884,
+                "LGC-CLS": 0.12786608453381884,
+                "SVM-Margin": -18.164381148353915,
+                "SVM-LOO-Margin": -0.01732234439149892
+            },
+            {
+                "Model": "WavLM",
+                "Test_Accuracy": 0.6133333444595337,
+                "LogME": -0.30422396559438014,
+                "LFC": 0.18919419210473842,
+                "LGC": 0.1891942152229783,
+                "LGC-CLS": 0.16064886209893317,
+                "SVM-Margin": -16.922028937395833,
+                "SVM-LOO-Margin": -0.0046324944178580485
+            }
+        ],
+        "25_shot": [
+            {
+                "Model": "AVES-bio",
+                "Test_Accuracy": 0.7200000286102295,
+                "LogME": -0.15670680097643522,
+                "LFC": 0.30856774224819206,
+                "LGC": 0.30856771774345165,
+                "LGC-CLS": 0.28819656971384655,
+                "SVM-Margin": -14.528529524147011,
+                "SVM-LOO-Margin": 0.07445507374199285
+            },
+            {
+                "Model": "BirdAVES-biox-base",
+                "Test_Accuracy": 0.7333333492279053,
+                "LogME": -0.12057084142647255,
+                "LFC": 0.2937997470467189,
+                "LGC": 0.2937997578225645,
+                "LGC-CLS": 0.24893799466784775,
+                "SVM-Margin": -14.111481532304532,
+                "SVM-LOO-Margin": 0.08103383663808875
+            },
+            {
+                "Model": "DistilHuBERT",
+                "Test_Accuracy": 0.7200000286102295,
+                "LogME": -0.1783723837889807,
+                "LFC": 0.20420482152029895,
+                "LGC": 0.20420483163455458,
+                "LGC-CLS": 0.19437004740127223,
+                "SVM-Margin": -17.29061656309277,
+                "SVM-LOO-Margin": 0.061113113059185376
+            },
+            {
+                "Model": "HuBERT",
+                "Test_Accuracy": 0.6933333277702332,
+                "LogME": -0.2304801113720476,
+                "LFC": 0.19184279977321086,
+                "LGC": 0.19184280320743022,
+                "LGC-CLS": 0.18224750861582675,
+                "SVM-Margin": -18.233111613496977,
+                "SVM-LOO-Margin": 0.04035267325352325
+            },
+            {
+                "Model": "MusicHuBERT",
+                "Test_Accuracy": 0.6399999856948853,
+                "LogME": -0.32774143696173885,
+                "LFC": 0.12256163127398947,
+                "LGC": 0.1225616394837247,
+                "LGC-CLS": 0.11334993257655596,
+                "SVM-Margin": -22.098805754348934,
+                "SVM-LOO-Margin": -0.007471824684453005
+            },
+            {
+                "Model": "WavLM",
+                "Test_Accuracy": 0.6200000047683716,
+                "LogME": -0.29178256701453986,
+                "LFC": 0.1919352033550796,
+                "LGC": 0.19193522408982755,
+                "LGC-CLS": 0.16452650275264957,
+                "SVM-Margin": -20.027051305330318,
+                "SVM-LOO-Margin": 0.02238055923479317
+            }
+        ]
+    }
+}

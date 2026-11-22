@@ -1,0 +1,44 @@
+{
+    "AVES-bio": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "C_svm": 1.0,
+        "overall_loo_margin_new": null,
+        "class_wise_loo_margin_new": null
+    },
+    "BirdAVES-biox-base": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "C_svm": 1.0,
+        "overall_loo_margin_new": null,
+        "class_wise_loo_margin_new": null
+    },
+    "DistilHuBERT": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "C_svm": 1.0,
+        "overall_loo_margin_new": null,
+        "class_wise_loo_margin_new": null
+    },
+    "HuBERT": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "C_svm": 1.0,
+        "overall_loo_margin_new": null,
+        "class_wise_loo_margin_new": null
+    },
+    "MusicHuBERT": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "C_svm": 1.0,
+        "overall_loo_margin_new": null,
+        "class_wise_loo_margin_new": null
+    },
+    "WavLM": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "C_svm": 1.0,
+        "overall_loo_margin_new": null,
+        "class_wise_loo_margin_new": null
+    }
+}

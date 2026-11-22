@@ -1,0 +1,98 @@
+{
+    "AVES-bio": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "overall_svm_margin": -0.8971851567744252,
+        "overall_neg_sum_alpha": -1.6596606903863427,
+        "overall_loo_margin": null,
+        "class_wise_svm_margin": {
+            "0": -0.7953937797070287,
+            "1": -1.0182656787185334,
+            "2": -0.960265199171951,
+            "3": -0.6089167532068005,
+            "4": -0.9309382885255884,
+            "5": -1.0693312413166496
+        },
+        "class_wise_loo_margin": null
+    },
+    "BirdAVES-biox-base": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "overall_svm_margin": -0.859807810017853,
+        "overall_neg_sum_alpha": -1.671338011954757,
+        "overall_loo_margin": null,
+        "class_wise_svm_margin": {
+            "0": -0.8588580453337581,
+            "1": -1.0102638954430667,
+            "2": -0.8170475178171094,
+            "3": -0.7168803614634112,
+            "4": -0.8064301479663326,
+            "5": -0.94936689208344
+        },
+        "class_wise_loo_margin": null
+    },
+    "DistilHuBERT": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "overall_svm_margin": -0.9499367052920727,
+        "overall_neg_sum_alpha": -1.6411224580104646,
+        "overall_loo_margin": null,
+        "class_wise_svm_margin": {
+            "0": -0.8571715754417776,
+            "1": -1.1501229460045352,
+            "2": -0.9527567224738785,
+            "3": -0.552554483642359,
+            "4": -1.0906929491260537,
+            "5": -1.0963215550638323
+        },
+        "class_wise_loo_margin": null
+    },
+    "HuBERT": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "overall_svm_margin": -0.9266297100694929,
+        "overall_neg_sum_alpha": -1.6458315621446653,
+        "overall_loo_margin": null,
+        "class_wise_svm_margin": {
+            "0": -0.86153303179758,
+            "1": -0.9944191543121939,
+            "2": -1.0071023610831298,
+            "3": -0.5829758573661756,
+            "4": -1.0189799709293506,
+            "5": -1.0947678849285274
+        },
+        "class_wise_loo_margin": null
+    },
+    "MusicHuBERT": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "overall_svm_margin": -0.8767121702851106,
+        "overall_neg_sum_alpha": -1.6746071605412673,
+        "overall_loo_margin": null,
+        "class_wise_svm_margin": {
+            "0": -0.8593446334708175,
+            "1": -1.0650008176071706,
+            "2": -0.8116114378087589,
+            "3": -0.6760859117915171,
+            "4": -0.9116599932739297,
+            "5": -0.9365702277584701
+        },
+        "class_wise_loo_margin": null
+    },
+    "WavLM": {
+        "shots_per_class": 1,
+        "total_samples": 6,
+        "overall_svm_margin": -0.9784048430443425,
+        "overall_neg_sum_alpha": -1.627715338367641,
+        "overall_loo_margin": null,
+        "class_wise_svm_margin": {
+            "0": -1.0430911008017338,
+            "1": -0.9501644837577923,
+            "2": -1.1505068135567884,
+            "3": -0.5049861053429341,
+            "4": -1.0122579093948234,
+            "5": -1.209422645411983
+        },
+        "class_wise_loo_margin": null
+    }
+}
