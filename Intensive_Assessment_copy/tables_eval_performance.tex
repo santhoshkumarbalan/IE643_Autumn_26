@@ -1,0 +1,83 @@
+\begin{table}[htbp]
+\centering
+\caption{Evaluation performance on unseen test data under the 1-shot regime across training strategies.}
+\label{tab:eval_performance_1_shot}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Backbone Model} & \multicolumn{2}{c}{\textbf{Regularization-Tuned}} & \multicolumn{2}{c}{\textbf{Optimal Epoch-Tuned}} \\
+\cline{2-5}
+& \textbf{Accuracy (\%)} & \textbf{Test Loss} & \textbf{Accuracy (\%)} & \textbf{Test Loss} \\
+\hline
+\texttt{AVES-bio} & 35.33 & 1.7031 & 35.33 & 1.5857 \\
+\texttt{BirdAVES-biox-base} & 40.00 & 1.7191 & 40.00 & 1.6155 \\
+\texttt{DistilHuBERT} & 36.00 & 1.6741 & 34.00 & 1.6314 \\
+\texttt{HuBERT} & 34.67 & 1.6978 & 34.00 & 1.6566 \\
+\texttt{MusicHuBERT} & 24.00 & 1.7660 & 23.33 & 1.8118 \\
+\texttt{WavLM} & 28.67 & 1.7065 & 27.33 & 1.7786 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Evaluation performance on unseen test data under the 5-shot regime across training strategies.}
+\label{tab:eval_performance_5_shot}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Backbone Model} & \multicolumn{2}{c}{\textbf{Regularization-Tuned}} & \multicolumn{2}{c}{\textbf{Optimal Epoch-Tuned}} \\
+\cline{2-5}
+& \textbf{Accuracy (\%)} & \textbf{Test Loss} & \textbf{Accuracy (\%)} & \textbf{Test Loss} \\
+\hline
+\texttt{AVES-bio} & 63.33 & 1.2199 & 64.00 & 1.1975 \\
+\texttt{BirdAVES-biox-base} & 57.33 & 1.2663 & 57.33 & 1.2687 \\
+\texttt{DistilHuBERT} & 47.33 & 1.3578 & 45.33 & 1.3555 \\
+\texttt{HuBERT} & 47.33 & 1.6385 & 49.33 & 1.4567 \\
+\texttt{MusicHuBERT} & 49.33 & 1.4820 & 46.67 & 1.5335 \\
+\texttt{WavLM} & 42.67 & 1.5159 & 42.67 & 1.5357 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Evaluation performance on unseen test data under the 10-shot regime across training strategies.}
+\label{tab:eval_performance_10_shot}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Backbone Model} & \multicolumn{2}{c}{\textbf{Regularization-Tuned}} & \multicolumn{2}{c}{\textbf{Optimal Epoch-Tuned}} \\
+\cline{2-5}
+& \textbf{Accuracy (\%)} & \textbf{Test Loss} & \textbf{Accuracy (\%)} & \textbf{Test Loss} \\
+\hline
+\texttt{AVES-bio} & 68.67 & 1.0132 & 67.33 & 0.9654 \\
+\texttt{BirdAVES-biox-base} & 62.00 & 1.0636 & 63.33 & 1.0233 \\
+\texttt{DistilHuBERT} & 61.33 & 1.0784 & 63.33 & 1.0650 \\
+\texttt{HuBERT} & 62.67 & 1.1668 & 62.67 & 1.1641 \\
+\texttt{MusicHuBERT} & 58.67 & 1.1755 & 58.67 & 1.1765 \\
+\texttt{WavLM} & 56.67 & 1.2966 & 56.67 & 1.2981 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Evaluation performance on unseen test data under the 25-shot regime across training strategies.}
+\label{tab:eval_performance_25_shot}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Backbone Model} & \multicolumn{2}{c}{\textbf{Regularization-Tuned}} & \multicolumn{2}{c}{\textbf{Optimal Epoch-Tuned}} \\
+\cline{2-5}
+& \textbf{Accuracy (\%)} & \textbf{Test Loss} & \textbf{Accuracy (\%)} & \textbf{Test Loss} \\
+\hline
+\texttt{AVES-bio} & 68.67 & 0.9398 & 70.67 & 0.8829 \\
+\texttt{BirdAVES-biox-base} & 72.67 & 0.9254 & 71.33 & 0.8617 \\
+\texttt{DistilHuBERT} & 70.67 & 0.9130 & 69.33 & 0.8639 \\
+\texttt{HuBERT} & 68.67 & 1.0177 & 70.00 & 0.9751 \\
+\texttt{MusicHuBERT} & 64.67 & 1.0799 & 64.00 & 1.0254 \\
+\texttt{WavLM} & 64.67 & 1.1242 & 62.00 & 1.0828 \\
+\hline
+\end{tabular}
+\end{table}
+
